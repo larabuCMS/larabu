@@ -11,6 +11,10 @@
 |
 */
 
-Route::prefix('$LOWER_NAME$')->group(function() {
-    Route::get('/', 'Admin$STUDLY_NAME$Controller@index');
+Route::prefix('admin')->group(function() {
+    Route::prefix('$LOWER_NAME$')->group(function() {
+        Route::get('/', 'Admin$STUDLY_NAME$Controller@index');
+    });
 });
+
+

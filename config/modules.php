@@ -29,7 +29,7 @@ return [
         'enabled' => true,
         'path' => base_path('stubs/modules'),
         'files' => [
-            'controller-admin' => 'Http/Controllers/Admin/AdminModuleController.php',
+            // pri kazdom generovani treba premenovat nazov suboru
             'routes/web' => 'Routes/web.php',
             'routes/admin' => 'Routes/admin.php',
             'routes/api' => 'Routes/api.php',
@@ -43,7 +43,6 @@ return [
             'package' => 'package.json',
         ],
         'replacements' => [
-            'controller-admin' => ['LOWER_NAME', 'STUDLY_NAME'],
             'routes/web' => ['LOWER_NAME', 'STUDLY_NAME'],
             'routes/admin' => ['LOWER_NAME', 'STUDLY_NAME'],
             'routes/api' => ['LOWER_NAME'],

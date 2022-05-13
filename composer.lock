@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4aea36e6d66bc6da76f4227fce472ca9",
+    "content-hash": "1db05a77a8f63bb1556ab3c3cbeb428f",
     "packages": [
         {
             "name": "brick/math",
@@ -2004,17 +2004,11 @@
         },
         {
             "name": "nwidart/laravel-modules",
-            "version": "9.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nWidart/laravel-modules.git",
-                "reference": "5483801843f653df5ffd074da373508f4d3925c9"
-            },
+            "version": "dev-master",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nWidart/laravel-modules/zipball/5483801843f653df5ffd074da373508f4d3925c9",
-                "reference": "5483801843f653df5ffd074da373508f4d3925c9",
-                "shasum": ""
+                "type": "path",
+                "url": "./packages/nwidart/laravel-modules",
+                "reference": "570ac02a92c10b306102c8a7045c520f4dadb4c3"
             },
             "require": {
                 "ext-json": "*",
@@ -2044,14 +2038,33 @@
                 }
             },
             "autoload": {
-                "files": [
-                    "src/helpers.php"
-                ],
                 "psr-4": {
                     "Nwidart\\Modules\\": "src"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Nwidart\\Modules\\Tests\\": "tests",
+                    "Modules\\Recipe\\": "tests/stubs/valid/Recipe"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "scripts": {
+                "update-snapshots": [
+                    "./vendor/bin/phpunit --no-coverage -d --update-snapshots"
+                ],
+                "test": [
+                    "vendor/bin/phpunit"
+                ],
+                "test-coverage": [
+                    "vendor/bin/phpunit --debug --coverage-html coverage"
+                ],
+                "pcf": [
+                    "vendor/bin/php-cs-fixer fix --verbose"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -2071,17 +2084,9 @@
                 "nwidart",
                 "rad"
             ],
-            "support": {
-                "issues": "https://github.com/nWidart/laravel-modules/issues",
-                "source": "https://github.com/nWidart/laravel-modules/tree/9.0.1"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/nwidart",
-                    "type": "github"
-                }
-            ],
-            "time": "2022-02-28T13:17:36+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "phpoption/phpoption",
@@ -7829,7 +7834,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "nwidart/laravel-modules": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

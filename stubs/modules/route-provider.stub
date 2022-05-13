@@ -12,7 +12,9 @@ class $CLASS$ extends ServiceProvider
      *
      * @var string
      */
-    protected $moduleNamespace = '$MODULE_NAMESPACE$\$MODULE$\$CONTROLLER_NAMESPACE$';
+    protected $moduleNamespace = '$MODULE_NAMESPACE$\$MODULE$\Http\Controllers';
+    protected $moduleNamespace_web = '$MODULE_NAMESPACE$\$MODULE$\Http\Controllers\Front';
+    protected $moduleNamespace_admin = '$MODULE_NAMESPACE$\$MODULE$\Http\Controllers\Admin';
 
     /**
      * Called before routes are registered.
@@ -36,6 +38,9 @@ class $CLASS$ extends ServiceProvider
         $this->mapApiRoutes();
 
         $this->mapWebRoutes();
+
+        $this->mapAdminRoutes();
+
     }
 
     /**
@@ -48,9 +53,24 @@ class $CLASS$ extends ServiceProvider
     protected function mapWebRoutes()
     {
         Route::middleware('web')
-            ->namespace($this->moduleNamespace)
+            ->namespace($this->moduleNamespace_web)
             ->group(module_path('$MODULE$', '$WEB_ROUTES_PATH$'));
     }
+
+    /**
+     * Define the "web" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapAdminRoutes()
+    {
+        Route::middleware('web')
+            ->namespace($this->moduleNamespace_admin)
+            ->group(module_path('$MODULE$', 'Routes/admin.php'));
+    }
+
 
     /**
      * Define the "api" routes for the application.
