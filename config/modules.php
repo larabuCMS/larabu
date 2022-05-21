@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'namespace' => 'Modules',
+    'namespace' => 'app\Modules',
 
     /*
     |--------------------------------------------------------------------------
@@ -35,6 +35,8 @@ return [
             'routes/api' => 'Routes/api.php',
             'views/index' => 'Resources/views/index.blade.php',
             'views/master' => 'Resources/views/layouts/master.blade.php',
+            'views/index-admin' => 'Resources/views/index-admin.blade.php',
+            'views/master-admin' => 'Resources/views/layouts/master-admin.blade.php',
             'scaffold/config' => 'Config/config.php',
             'composer' => 'composer.json',
             'assets/js/app' => 'Resources/assets/js/app.js',
@@ -50,6 +52,8 @@ return [
             'json' => ['LOWER_NAME', 'STUDLY_NAME', 'MODULE_NAMESPACE', 'PROVIDER_NAMESPACE'],
             'views/index' => ['LOWER_NAME'],
             'views/master' => ['LOWER_NAME', 'STUDLY_NAME'],
+            'views/index-admin' => ['LOWER_NAME'],
+            'views/master-admin' => ['LOWER_NAME', 'STUDLY_NAME'],
             'scaffold/config' => ['STUDLY_NAME'],
             'composer' => [
                 'LOWER_NAME',
@@ -74,7 +78,8 @@ return [
         |
         */
 
-        'modules' => base_path('Modules'),
+        'modules' => base_path('app/Modules'),
+        // 'modules' => 'app/Modules',
         /*
         |--------------------------------------------------------------------------
         | Modules assets path
