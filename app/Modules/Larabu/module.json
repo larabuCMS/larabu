@@ -1,0 +1,13 @@
+{
+    "name": "Larabu",
+    "alias": "larabu",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "app\\Modules\\Larabu\\Providers\\LarabuServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
